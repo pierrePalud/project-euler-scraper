@@ -37,7 +37,6 @@ def build_user_progress_table(last_record_filename):
 
 def join_problems_and_progression(df_euler, df_solved):
     df_euler = pd.merge(df_euler, df_solved, left_index=True, right_index=True, how='outer')
-#     print(df_euler.head())
     df_euler['Solved'] = (~pd.isnull(df_euler['Solved On']))
     return df_euler
 
