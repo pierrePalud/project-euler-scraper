@@ -1,10 +1,10 @@
 import os
 import time
 
-import scrap_fct as scr
-import user_prog_fct as user
-import plot_prog_fct as prog
-import constants as c
+import pescraper.scrap_fct as scr
+import pescraper.user_prog_fct as user
+import pescraper.plot_prog_fct as prog
+import pescraper.constants as c
 
 
 if __name__ == '__main__':
@@ -19,6 +19,8 @@ if __name__ == '__main__':
     df_euler = user.add_user_progression(df_euler)
 
     df_euler.to_csv(os.path.join(c.RESULT_DIR, 'project-euler-problems.csv'))
-    prog.plot_progression(df_euler)
+    
+    if 'Solved On' in df_euler.columns:
+        prog.plot_progression(df_euler)
 
     print(f"Importation of Data from Project Euler Successfull. Results saved in './{c.RESULT_DIR}'.")

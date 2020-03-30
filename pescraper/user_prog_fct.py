@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from datetime import datetime
 
-import constants as c
+import pescraper.constants as c
 
 
 def get_last_record_filename():

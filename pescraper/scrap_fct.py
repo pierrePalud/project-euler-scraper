@@ -6,7 +6,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 
-import constants as c
+import pescraper.constants as c
 
 
 

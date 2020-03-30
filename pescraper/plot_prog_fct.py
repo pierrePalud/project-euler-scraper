@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
-import constants as c
+import pescraper.constants as c
 
 
 def plot_progression(df_euler, n_days=60, n_prob=30, path_to_output=os.path.join(c.RESULT_DIR, 'project-euler-progression.png')):
