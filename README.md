@@ -24,7 +24,7 @@ python pescraper/main.py
 
 # How to include User Progression
 
-By default, **user progression is not included**. To add it to the output table, please add a Project Euler history txt file in a `./data` directory. To download this txt file, please go to https://projecteuler.net/progress;show=history and click on the link under the table. Then, run `pescraper/main.py` again.
+By default, **user progression is not included**. To add it to the output table, please add a Project Euler history txt file in a `./data` directory. To download this txt file, please go to https://projecteuler.net/progress;show=history and click on the link under the table. Once that txt file is included to the `./data` directory, simply run `pescraper/main.py` again.
 
 
 # Output
@@ -58,7 +58,6 @@ Here is an example of **graph** created with this algorithm :
 By default, the algorithm will show the activity of the last 60 days and 30 problems, but these two numbers can be set when calling the algorithm by running `main.py -d <n_days> -p <n_prob>`
 
 
-# Notes
+# Note
 
-* The algorithm uses multithreading to speed up the download of the problems' data.
-* Depending on your machine, the whole algorithm should take about a minute to run.
+The algorithm uses multithreading to speed up the problems data download. With this, the whole algorithm should take about a minute to run (depending on your machine).
