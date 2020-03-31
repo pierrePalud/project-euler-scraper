@@ -49,11 +49,10 @@ This table can be used for instance:
 
 The **graph** looks like this :
 
-❮img src="img/graph-example.png" width="200"❯
-
+![graph example](img/graph-example.png)
 
 # Notes
 
 * The algorithm uses multithreading to speed up the download of the problems' data.
-* Depending on your machine, the whole algorithm should take less than a minute to run.
+* Depending on your machine, the whole algorithm should take about a minute to run.
 * By default, the algorithm will show the activity of the last 60 days and 30 problems, but these two numbers can be set when calling the algorithm by running `main.py -d <n_days> -p <n_prob>`
