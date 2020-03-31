@@ -12,7 +12,7 @@ import constants as c
 
 
 class ProjectEulerScraper:
-    """main progrgram class
+    """main program class
     
     Attributes
     ----------
@@ -91,5 +91,4 @@ class ProjectEulerScraper:
 
 # run program
 if __name__ == '__main__':
-    pes = ProjectEulerScraper(sys.argv[1:])
-    pes.main()
+    ProjectEulerScraper(sys.argv[1:]).main()
