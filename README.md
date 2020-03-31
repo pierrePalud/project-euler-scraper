@@ -31,6 +31,8 @@ By default, **user progression is not included**. To add it to the output table,
 
 The output of the algorithm is double : a csv table (./result/project-euler-problems.csv) and a graph (./result/project-euler-progression.png).
 
+## Structure of csv Table
+
 The **table** contains the following data for each problem :
 1. number (int) : id of the problem
 2. title (str)
@@ -47,13 +49,16 @@ This table can be used for instance:
 * to find all the yet unsolved problems with a given difficulty
 * to find all the problems which title or description contain a given keyword (*prime* or *roman numeral* for example).
 
-The **graph** looks like this :
+## Example of graph output
 
-❮img src="img/graph-example.png" width="200"❯
+Here is an example of **graph** created with this algorithm :
+
+![graph example](img/graph-example.png)
+
+By default, the algorithm will show the activity of the last 60 days and 30 problems, but these two numbers can be set when calling the algorithm by running `main.py -d <n_days> -p <n_prob>`
 
 
 # Notes
 
 * The algorithm uses multithreading to speed up the download of the problems' data.
-* Depending on your machine, the whole algorithm should take less than a minute to run.
-* By default, the algorithm will show the activity of the last 60 days and 30 problems, but these two numbers can be set when calling the algorithm by running `main.py -d <n_days> -p <n_prob>`
+* Depending on your machine, the whole algorithm should take about a minute to run.
