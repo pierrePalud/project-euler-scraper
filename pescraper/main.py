@@ -69,7 +69,6 @@ class ProjectEulerScraper:
 
         # check existence of data and result directories, and create them emtpy if necessary
         for dir_name in [c.INPUT_DIR, c.OUTPUT_DIR]:
-            print(dir_name)
             if not(os.path.isdir(dir_name)):
                 os.mkdir(dir_name)
 
