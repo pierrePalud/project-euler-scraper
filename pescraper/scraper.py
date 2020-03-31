@@ -8,7 +8,14 @@ import pandas as pd
 
 
 
-class ProjectEulerScraper:
+class ProblemsScraper:
+    """Actual web scraper of the algorithm. Get the Project Euler Problems data.
+    
+    Attributes
+    ----------
+    max_id : int
+        maximum id of the project euler achived problems
+    """
     
     # raw url to get project euler problems data
     URL_ROOT = 'https://projecteuler.net/problem={}'
@@ -18,14 +25,12 @@ class ProjectEulerScraper:
     
 
     def __init__(self):
-        self.max_id = self.getMaxIdArchiveProblems()
-        
-        # list of problems to scrape
-        self.list_id = list(range(1, self.max_id + 1))
+        """Class constructor"""
+        self.getMaxIdArchiveProblems()
     
     
     def getMaxIdArchiveProblems(self):
-        '''Returns the maximum id of the project euler achived problems
+        '''Gets the maximum id of the project euler achived problems
 
         Parameters
         ----------
@@ -39,7 +44,7 @@ class ProjectEulerScraper:
         soup = BeautifulSoup(request.urlopen(self.URL_ARCHIVE).read().decode(), features="lxml")
         content = soup.find_all('p')[0].text
         max_id = re.findall('\d+', content)[1]
-        return int(max_id)
+        self.max_id = int(max_id)
 
 
     def scrapeOneProblem(self, num):
@@ -69,7 +74,7 @@ class ProjectEulerScraper:
         content = soup.find_all('div', {'class': 'problem_content'})[0]
         description = content.text[1:-1]
 
-        # initiate output dict        
+        # initiate output dict    
         dict_problem = {
             'number':num,
             'title':title,
@@ -119,8 +124,10 @@ class ProjectEulerScraper:
         df_euler : pandas.DataFrame
             dataframe with the problems data
         '''
+        list_id = list(range(1, self.max_id + 1))
+        
         with ThreadPoolExecutor(10) as executer:
-            list_df = list(tqdm(executer.map(self.scrapeOneProblem, self.list_id), total=len(self.list_id)))
+            list_df = list(tqdm(executer.map(self.scrapeOneProblem, list_id), total=len(list_id)))
 
         df_euler = pd.DataFrame(list_df)
         df_euler = df_euler.set_index('number')

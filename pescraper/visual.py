@@ -9,13 +9,27 @@ register_matplotlib_converters()
 
 
 class ProgressionVisual:
+    """Builder of the progression graphs
     
-    def __init__(self, df_euler, output_dir):
+    Attributes
+    ----------
+    df_solved : pandas.DataFrame
+        dataframe with user's solved problems data
+    """
+    
+    def __init__(self, df_euler):
+        """Class constructor"""
         self.getSolvedProblemsHistory(df_euler)
-        self.output_dir = output_dir
         
     
     def getSolvedProblemsHistory(self, df_euler):
+        """gets the dataframe of solved problems
+        
+        Parameters
+        ----------
+        df_euler : pandas.DataFrame
+            full dataframe
+        """
         df_solved = df_euler[df_euler['Solved']]
         df_solved = df_solved[['Difficulty rating', 'Solved On', 'Solved']]
         df_solved = df_solved.set_index('Solved On')
@@ -23,22 +37,17 @@ class ProgressionVisual:
         self.df_solved = df_solved
 
 
-    def plotProgression(self, n_days=60, n_prob=30):
+    def plotProgression(self, n_days, n_prob):
         '''Plots the user progression and saves the figure in a 
         png file.
 
         Parameters
         ----------
-        df_solved : pandas.DataFrame
+        n_days : int
+            number of days to consider for partial temporal historical
 
-
-        n_days : int, optional (default=60)
-
-        n_prob : int, optional (default=30)
-
-        Returns
-        -------
-        None
+        n_prob : int
+            number of problems to consider for partial problems historical            
         '''
         fig, ax = plt.subplots(nrows=3, ncols=4, sharex='col', figsize=(12,8))    
 
@@ -142,4 +151,4 @@ class ProgressionVisual:
                 ax[i,j].grid()
 
         fig.tight_layout()
-        plt.savefig(os.path.join(self.output_dir, 'project-euler-progression.png'))
+        plt.savefig(os.path.join(c.OUTPUT_DIR, 'project-euler-progression.png'))
