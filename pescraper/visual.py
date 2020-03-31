@@ -7,6 +7,8 @@ from datetime import datetime, timedelta
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
+import constants as c
+
 
 class ProgressionVisual:
     """Builder of the progression graphs

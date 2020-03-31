@@ -2,6 +2,8 @@ import os
 import pandas as pd
 from datetime import datetime
 
+import constants as c
+
 
 class UserProgressionIntegrator:
     """This class integrates the historical personal data of the user to
