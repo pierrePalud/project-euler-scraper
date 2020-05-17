@@ -91,4 +91,5 @@ class ProjectEulerScraper:
 
 # run program
 if __name__ == '__main__':
-    ProjectEulerScraper(sys.argv[1:]).main()
+    pe = ProjectEulerScraper(sys.argv[1:])
+    pe.main()
