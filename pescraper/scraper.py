@@ -82,7 +82,7 @@ class ProblemsScraper:
         } 
 
         # get additional data
-        add_info = soup.find_all('span', {'class': 'info noprint'})[0]
+        add_info = soup.find_all('span', {'class': 'info'})[1]
         add_info_list = add_info.text.replace('; ', ';').split(';')
 
         dict_add_info = {}
